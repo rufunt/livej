@@ -16,9 +16,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to @post
+      redirect_to @post, success: 'Статья успешно создана'
     else
-      render 'new'
+      render 'new', danger: 'Статья не была создана'
     end
   end
   
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   
   def destroy
     if @post.destroy
-      redirect_to root_path
+      redirect_to root_path, success: 'Статья успешно удалена'
     end
   end
   
