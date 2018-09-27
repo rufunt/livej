@@ -27,9 +27,9 @@ class PostsController < ApplicationController
   
   def update
     if @post.update(post_params)
-      redirect_to @post
+      redirect_to @post, success: 'Статья успешно обновлена!'
     else
-      render 'edit'
+      render 'edit', danger: 'Статья не была обновлена'
     end
   end
   
